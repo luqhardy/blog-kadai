@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luqman's Blog.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Luqman Hadi's Blog</h1>
+            <p>私のブログです。</p>
+        </header>
+
+        <main>
+            <!-- タグ管理画面 -->
+            <div id="tag-manage-section" style="margin:2em 0;">
+                <h2>タグ管理</h2>
+                <form id="add-tag-form" style="margin-bottom:1em;">
+                    <input type="text" id="new-tag-name" placeholder="新しいタグ名" style="width:200px;">
+                    <button type="submit">追加</button>
+                </form>
+                <table id="tag-table" style="width:100%; border-collapse:collapse;">
+                    <thead>
+                        <tr>
+                            <th>タグ名</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JSでタグ一覧を表示 -->
+                    </tbody>
+                </table>
+                <!-- 編集モーダル -->
+                <div id="edit-tag-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+                    <div style="background:#fff; padding:2em; border-radius:8px; min-width:300px; max-width:90vw;">
+                        <h2>タグ編集</h2>
+                        <form id="edit-tag-form">
+                            <input type="text" id="edit-tag-name" style="width:100%;">
+                            <div style="text-align:right; margin-top:1em;">
+                                <button type="button" id="cancel-edit-tag">キャンセル</button>
+                                <button type="submit" id="submit-edit-tag">保存</button>
+                            </div>
+                            <div id="edit-tag-error" style="color:red; margin-top:1em;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 投稿編集モーダル -->
+            <div id="edit-post-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+                <div style="background:#fff; padding:2em; border-radius:8px; min-width:300px; max-width:90vw;">
+                    <h2>投稿編集</h2>
+                    <form id="edit-post-form">
+                        <div style="margin-bottom:1em;">
+                            <label for="edit-title">タイトル</label><br>
+                            <input type="text" id="edit-title" name="title" style="width:100%;">
+                        </div>
+                        <div style="margin-bottom:1em;">
+                            <label for="edit-content">本文</label><br>
+                            <textarea id="edit-content" name="content" rows="5" style="width:100%;"></textarea>
+                        </div>
+                        <div style="text-align:right;">
+                            <button type="button" id="cancel-edit-post">キャンセル</button>
+                            <button type="submit" id="submit-edit-post">保存</button>
+                        </div>
+                        <div id="edit-post-error" style="color:red; margin-top:1em;"></div>
+                    </form>
+                </div>
+            </div>
+            <!-- 新規投稿モーダル -->
+            <div id="new-post-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+                <div style="background:#fff; padding:2em; border-radius:8px; min-width:300px; max-width:90vw;">
+                    <h2>新規投稿</h2>
+                    <form id="new-post-form">
+                        <div style="margin-bottom:1em;">
+                            <label for="new-title">タイトル</label><br>
+                            <input type="text" id="new-title" name="title" style="width:100%;">
+                        </div>
+                        <div style="margin-bottom:1em;">
+                            <label for="new-content">本文</label><br>
+                            <textarea id="new-content" name="content" rows="5" style="width:100%;"></textarea>
+                        </div>
+                        <div style="text-align:right;">
+                            <button type="button" id="cancel-new-post">キャンセル</button>
+                            <button type="submit" id="submit-new-post">投稿</button>
+                        </div>
+                        <div id="new-post-error" style="color:red; margin-top:1em;"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="blog-list">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1em; flex-wrap:wrap; gap:1em;">
+                    <h2>ブログ一覧</h2>
+                    <div style="display:flex; align-items:center; gap:0.5em;">
+                        <select id="tag-search-select">
+                            <option value="">タグで絞り込み</option>
+                            <!-- JSでタグ一覧を追加 -->
+                        </select>
+                        <button id="tag-search-button">タグ検索</button>
+                    </div>
+                    <button id="new-post-button">新規投稿</button>
+                </div>
+                <table id="blog-table" style="width:100%; border-collapse:collapse;">
+                    <thead>
+                        <tr>
+                            <th>タイトル</th>
+                            <th>本文</th>
+                            <th>作成日</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JSでブログ一覧を表示 -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
