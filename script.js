@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // タグ検索機能
     const tagSearchSelect = document.getElementById('tag-search-select');
     const tagSearchButton = document.getElementById('tag-search-button');
 
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tagSearchSelect.innerHTML = '<option value="">タグ取得失敗</option>';
         }
     }
-    // 初回ロード
     updateTagSearchSelect();
 
     tagSearchButton.addEventListener('click', async () => {
@@ -56,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('ブログ一覧の読み込みに失敗しました:', error);
         }
     });
-    // タグ管理
+
     const tagTableBody = document.querySelector('#tag-table tbody');
     const addTagForm = document.getElementById('add-tag-form');
     const newTagName = document.getElementById('new-tag-name');
@@ -94,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('タグ一覧の読み込みに失敗しました:', error);
         }
     }
-    // 初回ロード
+
     loadTagList();
 
     addTagForm.addEventListener('submit', async (e) => {
@@ -180,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
             editTagError.textContent = '通信エラーが発生しました';
         }
     });
-    // 投稿削除処理
+
     blogTableBody.addEventListener('click', async (e) => {
         if (e.target.classList.contains('delete-btn')) {
             const id = e.target.getAttribute('data-id');
@@ -265,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
             editPostError.textContent = '通信エラーが発生しました';
         }
     });
-    // 新規投稿モーダル表示・送信
+
     const newPostModal = document.getElementById('new-post-modal');
     const newPostButton = document.getElementById('new-post-button');
     const cancelNewPost = document.getElementById('cancel-new-post');
@@ -310,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             newPostError.textContent = '通信エラーが発生しました';
         }
     });
-    // ブログ一覧取得・表示
+
     const blogTableBody = document.querySelector('#blog-table tbody');
     async function loadBlogList() {
         try {
@@ -340,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('ブログ一覧の読み込みに失敗しました:', error);
         }
     }
-    // 初回ロード
+
     loadBlogList();
     const signupUsername = document.getElementById('signup-username');
     const signupPassword = document.getElementById('signup-password');

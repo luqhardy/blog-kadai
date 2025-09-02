@@ -1,5 +1,5 @@
 <?php
-// posts.php
+
 header('Content-Type: application/json; charset=utf-8');
 require_once 'db.php';
 
@@ -7,7 +7,7 @@ try {
     $pdo = getDb();
     $tagId = isset($_GET['tag_id']) ? $_GET['tag_id'] : '';
     if ($tagId) {
-        // タグIDで絞り込み（posts_tagsテーブルで紐付け）
+
         $sql = 'SELECT p.id, p.title, p.content, p.created_at FROM posts p
                 INNER JOIN posts_tags pt ON p.id = pt.post_id
                 WHERE pt.tag_id = ?

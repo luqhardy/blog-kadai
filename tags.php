@@ -1,5 +1,5 @@
 <?php
-// tags.php
+
 header('Content-Type: application/json; charset=utf-8');
 require_once 'db.php';
 
@@ -7,7 +7,7 @@ $pdo = getDb();
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
-    // タグ一覧取得
+
     $stmt = $pdo->query('SELECT id, name FROM tags ORDER BY id DESC');
     $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($tags);
