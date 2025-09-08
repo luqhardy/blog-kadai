@@ -2,7 +2,7 @@
 define('DB_HOST', 'localhost:8889');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
-define('DB_NAME', 'nanimo_db');
+define('DB_NAME', 'blog_test_db');
 
 try {
     $dbh = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4', DB_USER, DB_PASS);
