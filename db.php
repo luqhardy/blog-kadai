@@ -1,8 +1,8 @@
 
 <?php
 function getDb() {
-    $host = 'localhost';
-    $db   = 'nanimo_db';
+    $host = 'localhost:8889';
+    $db   = 'blog_test_db';
     $user = 'root';
     $pass = 'root';
     $charset = 'utf8mb4';
